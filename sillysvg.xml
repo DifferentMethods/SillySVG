@@ -1,0 +1,45 @@
+<?xml version="1.0"?> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+	<script type="text/javascript" src="sillysvg.js"></script>
+	<script type="text/javascript">
+	window.addEventListener("load", function() {
+
+		var surface = new Surface();
+		var grp = surface.g({id:"thing"});
+		var shape = surface.circle({stroke:"black",cx:25, cy:25, r:20, fill:"green"});
+		var line = new Shape("line",{stroke:"black",x1:10,y1:10,x2:100,y2:200});
+		var path = new Path();
+		var polyline = new Shape("polyline", {fill:"none", stroke:"black"});
+		var text = surface.text();
+		text.text("Booya")
+		text.set({rotate:0, "font-size":55, "font-family":"Verdana"})
+		grp.add(text);
+		polyline.points(10,10,100,100,90,10);
+		grp.add(polyline)
+		grp.add(shape)
+		grp.add(line)
+		grp.add(path)
+		path.add(10,10);
+		path.add(150,150);
+		path.add(150,200);
+		path.add(150,200);
+		path.add(10,200);
+		path.add(0,0);
+		path.add(10,10)
+		path.update();
+		grp.transform(240,240,0,1);
+		shape.drag();
+
+		text.drag();
+
+
+
+
+	}, false);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
