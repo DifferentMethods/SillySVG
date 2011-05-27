@@ -2,7 +2,6 @@ SillySVG
 --------
 
 
-SillySVG is an attempt to create a better SVG javascript library which is easy to use and extend, and supports most of the operations required for games and advanced GUI screens.
+SillySVG is an attempt to create a better SVG javascript library which is easy to use and extend, and supports most of the operations required for games and advanced GUI screens. It doesn't care about browsers that don't implement the relevant standards.
 
 
-Copyright 2011 Simon Wittber
