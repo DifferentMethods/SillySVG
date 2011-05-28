@@ -5,9 +5,15 @@
 	<script type="text/javascript">
 	window.addEventListener("load", function() {
 		svg = new SVG();
+		var defs = svg.defs();
+		defs.linearGradient({id:"surface",gradientUnits:"objectBoundingBox",x1:1,x2:1,y1:0,y2:1}).stop({'stop-color':"#EEE",offset:0}).parent.stop({'stop-color':"#000",offset:0.67});
+		defs.linearGradient({id:"light",gradientUnits:"objectBoundingBox",x1:0,x2:0,y1:0,y2:1}).stop({'stop-color':"#EEE",offset:0,'stop-opacity':1}).parent.stop({'stop-color':"#EEE",offset:0.4,'stop-opacity':0});
 		svg.circle().attr({r:10}).transform.translate(10,10);
-		svg.g().circle().attr({r:20,stroke:"black",fill:"none"}).transform.translate(100,100).parent.rect().attr({width:50,height:20,x:200,y:100}).transform.rotate(45);
-		
+		svg.g().circle().attr({r:20,stroke:"black",fill:"none"}).transform.translate(100,100).parent.rect().attr({width:50,height:20,x:200,y:100}).transform.rotate(45).set({attributeName:"stroke",to:"red",begin:"click"});
+		svg.polyline().points.update(0,0,100,100,50,100).attr({stroke:"black",fill:"none"});
+		svg.rect({x:10,y:10,rx:10,ry:10,width:150,height:80,fill:"url(#surface)",stroke:"#444"});
+		svg.text({x:50,y:55,'font-size':20,'font-family':'Tahoma','font-weight':500, fill:'white'}).textNode("Button!");
+		svg.rect({x:12,y:12,rx:10,ry:10,width:146,height:76,fill:"url(#light)",stroke:"#FFF", 'stroke-opacity':0.4});
 	}, false);
 	</script>
 </head>
